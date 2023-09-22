@@ -168,7 +168,7 @@ void UncaughtExceptionHandler(NSException *exception){
 
 **27. TCP协议三次握手**
 
-> TCP协议采用了三次握手策略。用TCP协议把数据包送出去后，TCP不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志——SYN(synchronize)和ACK(acknowledgement)。发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。 ![TCP协议三次握手示意图](https://upload-images.jianshu.io/upload\_images/1948913-912643bb699eaae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+> TCP协议采用了三次握手策略。用TCP协议把数据包送出去后，TCP不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志——SYN(synchronize)和ACK(acknowledgement)。发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。 ![TCP协议三次握手示意图](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.02.25.01.png)
 
 **28. @property 的本质是什么？**
 

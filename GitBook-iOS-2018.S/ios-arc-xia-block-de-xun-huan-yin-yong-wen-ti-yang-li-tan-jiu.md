@@ -74,6 +74,20 @@ layout:
 }
 ```
 
-> **分析：** \*\*情况一：\*\*执行了dealloc，不泄露，此情况虽然是block，但未形成保留环block -> self \*\*情况二：\*\*执行了dealloc，不泄露，此情况就是内存泄漏后的一般处理了 self ->teacher ->block ->strongSelf，后面那个strongSelf和原来的self并没有直接关系，因为strongSelf是通过weakSelf得来的，而weakSelf又没有强引用原来的self \*\*情况三：\*\*未执行dealloc，内存泄漏，此情况就是最典型的循环引用了，形成保留环无法释放，self ->teacher ->block ->self \*\*情况四：\*\*执行了dealloc，不泄露，虽然也是保留环，但通过最后一句，使self不再强引用teacher，打破了保留环 \*\*情况五：\*\*执行了dealloc，不泄露，未形成保留环 t ->block ->self \*\*情况六：\*\*执行了dealloc，不泄露，最后两句代码任选其一即可防止内存泄漏，self.teacher 或者 case6Block 置为空都可以打破 retain cycle PS: 虽然情况四、情况六的写法都可以防止内存泄漏，不过为了统一，个人建议最好还是按照普通写法即情况二的写法。
+> **分析：**
+>
+> 情况一：执行了dealloc，不泄露，此情况虽然是block，但未形成保留环block -> self&#x20;
+>
+> 情况二：执行了dealloc，不泄露，此情况就是内存泄漏后的一般处理了 self ->teacher ->block ->strongSelf，后面那个strongSelf和原来的self并没有直接关系，因为strongSelf是通过weakSelf得来的，而weakSelf又没有强引用原来的self&#x20;
+>
+> 情况三：未执行dealloc，内存泄漏，此情况就是最典型的循环引用了，形成保留环无法释放，self ->teacher ->block ->self&#x20;
+>
+> 情况四：执行了dealloc，不泄露，虽然也是保留环，但通过最后一句，使self不再强引用teacher，打破了保留环&#x20;
+>
+> 情况五：执行了dealloc，不泄露，未形成保留环 t ->block ->self&#x20;
+>
+> 情况六：执行了dealloc，不泄露，最后两句代码任选其一即可防止内存泄漏，self.teacher 或者 case6Block 置为空都可以打破 retain cycle&#x20;
+>
+> PS: 虽然情况四、情况六的写法都可以防止内存泄漏，不过为了统一，个人建议最好还是按照普通写法即情况二的写法。
 
 [附：我的博客地址](https://gsl201600.github.io/2019/01/02/iOSARC%E4%B8%8Bblock%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98%E6%A0%B7%E4%BE%8B%E6%8E%A2%E7%A9%B6/)
