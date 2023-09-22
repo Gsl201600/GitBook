@@ -168,7 +168,9 @@ void UncaughtExceptionHandler(NSException *exception){
 
 **27. TCP协议三次握手**
 
-> TCP协议采用了三次握手策略。用TCP协议把数据包送出去后，TCP不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志——SYN(synchronize)和ACK(acknowledgement)。发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。 ![TCP协议三次握手示意图](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.02.25.01.png)
+> TCP协议采用了三次握手策略。用TCP协议把数据包送出去后，TCP不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志——SYN(synchronize)和ACK(acknowledgement)。发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。
+
+![TCP协议三次握手示意图](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.02.25.01.png)
 
 **28. @property 的本质是什么？**
 
@@ -206,8 +208,8 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 ```
 函数定义：dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
 作用：
-	1.在它前面的任务执行结束后它才执行，它后面的任务要等它执行完成后才会开始执行。
-	2.避免数据竞争
+    1.在它前面的任务执行结束后它才执行，它后面的任务要等它执行完成后才会开始执行。
+    2.避免数据竞争
 
 // 1.创建并发队列
 dispatch_queue_t queue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_CONCURRENT);

@@ -28,7 +28,9 @@ layout:
 
 ## 3. 多线程的原理
 
-同一时间，CPU只能处理1条线程，只有1条线程在工作（执行） 多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换） 如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象 **思考：如果线程非常非常多，会发生什么情况？** \*CPU会在N多线程之间调度，CPU会累死，消耗大量的CPU资源 每条线程被调度执行的频次会降低（线程的执行效率降低） ![多线程示意图](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.01.08.01.png)
+同一时间，CPU只能处理1条线程，只有1条线程在工作（执行） 多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换） 如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象 **思考：如果线程非常非常多，会发生什么情况？** \*CPU会在N多线程之间调度，CPU会累死，消耗大量的CPU资源 每条线程被调度执行的频次会降低（线程的执行效率降低）
+
+![多线程示意图](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.01.08.01.png)
 
 ## 4. NSThread、GCD和NSOperation的区别
 
@@ -109,6 +111,8 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run)
 * 并行：指的是多个事情，在同一时间点上同时发生了
 * 并发的多个任务之间是互相抢占资源的
 * 并行的多个任务之间是不互相抢占资源的
-* 只有在多CPU的情况中，才会发生并行。否则，看似同时发生的事情，其实都是并发执行的 ![](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.01.08.02.jpg)
+* 只有在多CPU的情况中，才会发生并行。否则，看似同时发生的事情，其实都是并发执行的
+
+![](https://raw.githubusercontent.com/Gsl201600/PicGoImg/master/img/2019.01.08.02.jpg)
 
 [附：我的博客地址](https://gsl201600.github.io/2019/01/08/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/)
